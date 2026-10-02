@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rabia | Cybersecurity student</title>
+  <meta name="description" content="Cybersecurity student working on AI, cloud, network and ICS/OT security. Vibe coding and app building.">
+
+  <!--
+    ===== GUIDE DE MODIFICATION (pour Rabia) =====
+    Cherche les commentaires "À MODIFIER" dans ce fichier :
+    - ton email
+    - le lien GitHub et le lien LinkedIn
+    - la photo : mets un fichier "photo.jpg" dans le même dossier que index.html
+    Ne change rien d'autre au début. Tu peux tout modifier plus tard.
+  -->
+
+  <style>
+    :root {
+      --ink: #1c1f2b;
+      --ink-soft: #545a6b;
+      --paper: #fbfafb;
+      --panel: #f1edf1;
+      --line: #ddd6de;
+      --berry: #b5385a;
+      --berry-deep: #8c2544;
+      --on-berry: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --ink: #f2eff3;
+        --ink-soft: #b3adbb;
+        --paper: #17141b;
+        --panel: #221e28;
+        --line: #37303f;
+        --berry: #e0708f;
+        --berry-deep: #f094ac;
+        --on-berry: #17141b;
+      }
+    }
+    :root[data-theme="dark"] {
+      --ink: #f2eff3;
+      --ink-soft: #b3adbb;
+      --paper: #17141b;
+      --panel: #221e28;
+      --line: #37303f;
+      --berry: #e0708f;
+      --berry-deep: #f094ac;
+      --on-berry: #17141b;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+    a { color: var(--berry-deep); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--berry);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Barre du haut */
+    header.top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0;
+    }
+    header.top .brand { font-weight: 700; text-decoration: none; color: var(--ink); }
+    header.top nav { display: flex; gap: 22px; align-items: center; }
+    header.top nav a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; }
+    header.top nav a:hover { color: var(--berry-deep); }
+    .theme-btn {
+      background: none; border: 1px solid var(--line); color: var(--ink);
+      width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem;
+    }
+
+    /* Accueil */
+    .hero { padding: 64px 0 88px; display: grid; grid-template-columns: 1fr 200px; gap: 48px; align-items: center; }
+    .hero h1 {
+      font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(3.4rem, 10vw, 6.4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+    }
+    .hero .role { font-size: 1.25rem; color: var(--ink-soft); margin: 0 0 8px; }
+    .hero .focus {
+      font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+      font-weight: 600;
+      color: var(--berry);
+      min-height: 2.6rem;
+      margin: 0 0 28px;
+    }
+    .caret {
+      display: inline-block; width: 3px; height: 1.1em; margin-left: 3px;
+      background: var(--berry); vertical-align: text-bottom;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 8px;
+      font-weight: 600; text-decoration: none; transition: transform .15s ease;
+    }
+    .btn.primary { background: var(--berry); color: var(--on-berry); }
+    .btn.ghost { border: 1.5px solid var(--line); color: var(--ink); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .avatar {
+      position: relative; width: 200px; height: 200px; border-radius: 50%;
+      background: var(--berry); color: var(--on-berry);
+      display: grid; place-items: center;
+      font-family: Georgia, serif; font-size: 5rem; font-weight: 700;
+      overflow: hidden; justify-self: end;
+    }
+    .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* Sections */
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    section h2 {
+      font-family: "Iowan Old Style", Palatino, Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      margin: 0 0 24px;
+      letter-spacing: -0.01em;
+    }
+    .about p { max-width: 62ch; margin: 0 0 16px; }
+
+    /* Domaines */
+    .domains { list-style: none; margin: 0; padding: 0; }
+    .domains li {
+      display: grid; grid-template-columns: 240px 1fr; gap: 16px;
+      padding: 18px 0; border-bottom: 1px solid var(--line);
+    }
+    .domains li:first-child { border-top: 1px solid var(--line); }
+    .domains strong { font-size: 1.05rem; }
+    .domains span { color: var(--ink-soft); }
+
+    /* Projets */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .project { background: var(--panel); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .project h3 { margin: 0; font-size: 1.2rem; }
+    .project p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+    .status {
+      align-self: flex-start; font-size: 0.85rem; font-weight: 600;
+      padding: 3px 12px; border-radius: 999px; border: 1.5px solid var(--berry); color: var(--berry-deep);
+    }
+    .status.live { background: var(--berry); color: var(--on-berry); }
+    .tags { margin-top: auto; padding-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+
+    /* Contact */
+    .contact p { max-width: 55ch; margin: 0 0 20px; }
+    footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: 0.9rem; border-top: 1px solid var(--line); }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; padding-top: 32px; }
+      .avatar { order: -1; justify-self: start; width: 120px; height: 120px; font-size: 3.2rem; }
+      .domains li { grid-template-columns: 1fr; gap: 2px; }
+      header.top nav a { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .caret { animation: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="#top">Rabia</a>
+      <nav aria-label="Main">
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Switch light or dark theme" title="Light / dark">◐</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <div>
+          <h1>Rabia</h1>
+          <p class="role">Cybersecurity student</p>
+          <!-- Le texte ci-dessous change tout seul (animation). Sans JavaScript, il reste lisible. -->
+          <p class="focus" aria-live="off"><span id="typed">AI, cloud, network and ICS/OT security</span><span class="caret" aria-hidden="true"></span></p>
+          <div class="btns">
+            <a class="btn primary" href="#projects">See my projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <!-- PHOTO : mets un fichier photo.jpg dans le même dossier. S'il n'existe pas, la lettre F s'affiche. -->
+        <div class="avatar" aria-label="Profile picture">
+          R
+          <img src="photo.jpg" alt="Portrait of Rabia" onerror="this.remove()">
+        </div>
+      </div>
+
+      <section class="about" id="about">
+        <h2>About</h2>
+        <p>I study cybersecurity and I learn by building. My goal is to understand how systems are attacked and defended, from networks and the cloud to industrial control systems, and to use AI where it makes security work faster and smarter.</p>
+        <p>I am learning vibe coding and app building, so this page will grow with every project I finish. Each project has a written explanation of what I built, what I learned, and what I would improve.</p>
+      </section>
+
+      <section id="focus">
+        <h2>Focus areas</h2>
+        <ul class="domains">
+          <li><strong>Artificial intelligence</strong><span>Applying machine learning to security data, such as anomaly detection in logs.</span></li>
+          <li><strong>Cloud computing</strong><span>Learning to deploy and secure applications on cloud platforms.</span></li>
+          <li><strong>Network security</strong><span>Monitoring, intrusion detection and prevention.</span></li>
+          <li><strong>Industrial systems (ICS/OT)</strong><span>Understanding how industrial networks differ from office networks, and how to protect them.</span></li>
+          <li><strong>Vibe coding and app building</strong><span>Turning ideas into working tools with AI assistance, and understanding the code I ship.</span></li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+          <!-- PROJET 1 : garde ce texte général. Ne mets AUCUNE donnée interne de l'entreprise. -->
+          <article class="project">
+            <span class="status">In progress</span>
+            <h3>AI-assisted intrusion detection lab</h3>
+            <p>Rebuilt solo in my own virtual lab, using public datasets. The original version was a pair project with a classmate, done during our internship at a partner company for our bachelor's thesis. This version is my own independent work. It combines open-source network monitoring tools with a machine learning model to flag unusual activity.</p>
+            <div class="tags">Suricata · Wazuh · Isolation Forest · Python</div>
+          </article>
+
+          <article class="project">
+            <span class="status live">Live</span>
+            <h3>This portfolio website</h3>
+            <p>My first app-building project, built step by step with an AI assistant and published for free with GitHub Pages.</p>
+            <div class="tags">HTML · CSS · GitHub Pages</div>
+          </article>
+
+          <article class="project">
+            <span class="status">Planned</span>
+            <h3>Log analyzer</h3>
+            <p>A small tool that reads security logs, counts alerts and shows them in a simple dashboard.</p>
+            <div class="tags">Python · AI-assisted</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>Open to scholarships, mentoring and collaboration on security projects. The best way to reach me is by email.</p>
+        <div class="btns">
+          <!-- À MODIFIER : remplace ton-email@exemple.com par ton vrai email -->
+          <a class="btn primary" href="mailto:rabiatou957@gmail.com">Email me</a>
+          <!-- À MODIFIER : remplace VOTRE-NOM par ton nom d'utilisateur GitHub -->
+          <a class="btn ghost" href="https://github.com/Rabia-cyber">GitHub</a>
+        <!-- À MODIFIER : remplace par ton lien LinkedIn complet -->
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year">2026</span> Rabia</footer>
+  </div>
+
+  <script>
+    // Année automatique dans le pied de page
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Bouton clair / sombre
+    var root = document.documentElement;
+    document.getElementById('themeBtn').addEventListener('click', function () {
+      var dark = getComputedStyle(root).getPropertyValue('--paper').trim() === '#17141b';
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+    });
+
+    // Texte qui change dans l'accueil (désactivé si la personne préfère moins d'animation)
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var words = [
+      'AI and machine learning',
+      'Cloud computing',
+      'Network security',
+      'Industrial systems (ICS/OT) security',
+      'Vibe coding and app building'
+    ];
+    var el = document.getElementById('typed');
+    if (!reduce) {
+      var w = 0, c = 0, deleting = false;
+      (function tick() {
+        var word = words[w];
+        el.textContent = word.slice(0, c);
+        var delay = deleting ? 35 : 70;
+        if (!deleting && c === word.length) { deleting = true; delay = 1600; }
+        else if (deleting && c === 0) { deleting = false; w = (w + 1) % words.length; delay = 350; }
+        c += deleting ? -1 : 1;
+        setTimeout(tick, delay);
+      })();
+    }
+  </script>
+</body>
+</html>
